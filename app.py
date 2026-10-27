@@ -7,7 +7,7 @@ BASE_DIR = os.path.abspath(os.path.dirname(__file__))
 UPLOAD_FOLDER = os.path.join(BASE_DIR, 'static', 'uploads')
 DB_PATH = os.path.join(BASE_DIR, 'roadguard.db')
 ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg', 'webp'}
-app = Flask(__name__)
+app = Flask(__name__, template_folder='.')
 app.secret_key = os.environ.get('ROADGUARD_SECRET', 'change-this-secret-before-deployment')
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 app.config['MAX_CONTENT_LENGTH'] = 8 * 1024 * 1024
