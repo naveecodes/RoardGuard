@@ -68,7 +68,7 @@ def index():
         critical = sum(1 for r in reports if r['size'] == 'Large' and r['status'] != 'Resolved')
         pending = sum(1 for r in reports if r['status'] == 'Reported')
         resolved = sum(1 for r in reports if r['status'] == 'Resolved')
-    return render_template('index.html', reports=reports, total=total, critical=critical, pending=pending, resolved=resolved)
+    return render_template('index.html', reports=[dict(r) for r in reports], total=total, critical=critical, pending=pending, resolved=resolved)
 
 
 @app.route('/report', methods=['POST'])
